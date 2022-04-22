@@ -67,31 +67,31 @@ namespace ProjectEditor.Persistence.Repositories.DBContext
 
 
             modelBuilder.Entity<Customer>()
-                .HasMany(g => g.Devices) // Ein Genre kann in beliebig vielen Movie Datensätzen verwendet werden.
-                .WithOne(g => g.Name) // Jedes Genre existiert nur einmal für ein Movie kann nur ein Genre definiert werden.
-                .HasForeignKey(g => g.CustomerId) // Fremdschlüsselfeld PK <=> FK 
-                .OnDelete(DeleteBehavior.Restrict); // -> Stellt sicher dass kein Film gelöscht wird, wenn ein Genre gelöscht wird. (Löschweitergabe unterbinden)
+                .HasMany(g => g.Projects) 
+                .WithOne(g => g.Customer) 
+                .HasForeignKey(g => g.CustomerId) 
+                .OnDelete(DeleteBehavior.Restrict); 
 
 
 
 
 
             modelBuilder.Entity<Customer>().HasData(
-                new Customer { Id = new Guid (""), Name = "DummyCustomer Mani & Friends" },
-                new Customer { Id = new Guid(""), Name = "DummyCustomer Hudli und Murks" },
-                new Customer { Id = new Guid(""), Name = "DummyCustomer Blue Monday" }                
+                new Customer { Id = new Guid ("2A81C327-07A9-4B1D-A400-222B785F6481"), Name = "DummyCustomer Mani & Friends" },
+                new Customer { Id = new Guid("02D2F7A4-8C6E-4F2E-873E-7EDC45314939"), Name = "DummyCustomer Hudli und Murks" },
+                new Customer { Id = new Guid("651DD1B3-5ABE-4884-9BE8-59338C6165C8"), Name = "DummyCustomer Blue Monday" }                
                 );
 
             modelBuilder.Entity<Project>().HasData(
-                new Project { Id = new Guid(""), Name = "Digital Versatile Disc" },
-                new Project { Id = new Guid(""), Name = "Blue Ray" },
-                new Project { Id = new Guid(""), Name = "Blue Ray High Definition Res." }                
+                new Project { Id = new Guid("ED9C66C8-E2EB-4764-B625-96657B603D25"), CustomerId = new Guid("2A81C327-07A9-4B1D-A400-222B785F6481") },
+                new Project { Id = new Guid("087B0654-C840-43A2-B827-90D47C5BA041"), CustomerId = new Guid("02D2F7A4-8C6E-4F2E-873E-7EDC45314939") },
+                new Project { Id = new Guid("FE04D159-3CD6-4A19-A53E-48AB4425B5FD"), CustomerId = new Guid("651DD1B3-5ABE-4884-9BE8-59338C6165C8") }                
                 );
 
             modelBuilder.Entity<Device>().HasData(
-                new Device { Id = new Guid("93752F09-7EB5-4D1C-8C25-B744A5C4DBBE"), GenreId = 4, Name = "Star Trek Discovery Season 1", Price = 34.90m, MediumTypeCode = "BR", ReleaseDate = new DateTime(2017, 9, 14), Rating = Ratings.Great },
-                new Device { Id = new Guid("C5D683D9-F1F2-4C7A-9F3A-857AB00F2105"), GenreId = 1, Name = "Stirb langsam", Price = 7.90m, MediumTypeCode = "DVD", ReleaseDate = new DateTime(1998, 11, 1), Rating = Ratings.Unrated },
-                new Device { Id = new Guid("D4D2CF99-99F1-4E29-B429-C03A6F1FF492"), GenreId = 3, Name = "Titanic", Price = 9.90m, MediumTypeCode = "BR-3D", ReleaseDate = new DateTime(1994, 10, 14), Rating = Ratings.Medium }
+                new Device { Id = new Guid("93752F09-7EB5-4D1C-8C25-B744A5C4DBBE"), ProjectId = new Guid("ED9C66C8-E2EB-4764-B625-96657B603D25"), Name = "Star Trek Discovery Season 1" },
+                new Device { Id = new Guid("C5D683D9-F1F2-4C7A-9F3A-857AB00F2105"), ProjectId = new Guid("087B0654-C840-43A2-B827-90D47C5BA041"), Name = "Stirb langsam" },
+                new Device { Id = new Guid("D4D2CF99-99F1-4E29-B429-C03A6F1FF492"), ProjectId = new Guid("FE04D159-3CD6-4A19-A53E-48AB4425B5FD"), Name = "Titanic" }
                 );
 
         }
