@@ -49,5 +49,51 @@ namespace ProjectEditor.Persistence.Repositories.DBContext
 #endif
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            // Constraints 
+            modelBuilder.Entity<Device>()
+                .HasOne(m => m.Project)
+                .WithMany(m => m.Devices)
+                .HasForeignKey(m => m.ProjectId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Project>()
+                .HasOne(m => m.Customer)
+                .WithMany(m => m.Projects)
+                .HasForeignKey(m => m.CustomerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<Customer>()
+                .HasMany(g => g.Devices) // Ein Genre kann in beliebig vielen Movie Datensätzen verwendet werden.
+                .WithOne(g => g.Name) // Jedes Genre existiert nur einmal für ein Movie kann nur ein Genre definiert werden.
+                .HasForeignKey(g => g.CustomerId) // Fremdschlüsselfeld PK <=> FK 
+                .OnDelete(DeleteBehavior.Restrict); // -> Stellt sicher dass kein Film gelöscht wird, wenn ein Genre gelöscht wird. (Löschweitergabe unterbinden)
+
+
+
+
+
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer { Id = new Guid (""), Name = "DummyCustomer Mani & Friends" },
+                new Customer { Id = new Guid(""), Name = "DummyCustomer Hudli und Murks" },
+                new Customer { Id = new Guid(""), Name = "DummyCustomer Blue Monday" }                
+                );
+
+            modelBuilder.Entity<Project>().HasData(
+                new Project { Id = new Guid(""), Name = "Digital Versatile Disc" },
+                new Project { Id = new Guid(""), Name = "Blue Ray" },
+                new Project { Id = new Guid(""), Name = "Blue Ray High Definition Res." }                
+                );
+
+            modelBuilder.Entity<Device>().HasData(
+                new Device { Id = new Guid("93752F09-7EB5-4D1C-8C25-B744A5C4DBBE"), GenreId = 4, Name = "Star Trek Discovery Season 1", Price = 34.90m, MediumTypeCode = "BR", ReleaseDate = new DateTime(2017, 9, 14), Rating = Ratings.Great },
+                new Device { Id = new Guid("C5D683D9-F1F2-4C7A-9F3A-857AB00F2105"), GenreId = 1, Name = "Stirb langsam", Price = 7.90m, MediumTypeCode = "DVD", ReleaseDate = new DateTime(1998, 11, 1), Rating = Ratings.Unrated },
+                new Device { Id = new Guid("D4D2CF99-99F1-4E29-B429-C03A6F1FF492"), GenreId = 3, Name = "Titanic", Price = 9.90m, MediumTypeCode = "BR-3D", ReleaseDate = new DateTime(1994, 10, 14), Rating = Ratings.Medium }
+                );
+
+        }
     }
 }
