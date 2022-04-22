@@ -9,10 +9,17 @@ namespace ProjectEditor.Core.Entities.Projects
 {
     public partial class Project : ProjectBase
     {
+        public Project()
+        {
+           this.Devices = new HashSet<Device>();
+        }
+
         DateTime CreateDate { get; set; } = DateTime.Now;
         DateTime? ModifyDate { get; set; }
 
 
+        
+        
         public ICollection<Device> Devices { get; }
 
 
