@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\DBContext\" />
     <Folder Include="Repositories\Base\" />
   </ItemGroup>
 
