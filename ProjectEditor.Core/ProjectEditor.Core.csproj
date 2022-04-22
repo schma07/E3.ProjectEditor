@@ -6,7 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Application\" />
-    <Folder Include="Entities\" />
+    <Folder Include="Entities\Devices\" />
+    <Folder Include="Entities\Projects\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 
