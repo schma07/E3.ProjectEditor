@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\DBContext\" />
+    <Folder Include="Repositories\Base\" />
+  </ItemGroup>
+
 </Project>
