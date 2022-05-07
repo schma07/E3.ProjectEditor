@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProjectEditor.Core.Entities.Customers
 {
-    public partial class Customer : CustomerBase
+    public partial class Customer : CustomerBase, IEntity
     {
         DateTime CreateDate { get; set; } = DateTime.Now;
         DateTime? ModifyDate { get; set; }

@@ -89,9 +89,9 @@ namespace ProjectEditor.Persistence.Repositories.DBContext
                 );
 
             modelBuilder.Entity<Device>().HasData(
-                new Device { Id = new Guid("93752F09-7EB5-4D1C-8C25-B744A5C4DBBE"), ProjectId = new Guid("ED9C66C8-E2EB-4764-B625-96657B603D25"), Name = "Star Trek Discovery Season 1" },
-                new Device { Id = new Guid("C5D683D9-F1F2-4C7A-9F3A-857AB00F2105"), ProjectId = new Guid("087B0654-C840-43A2-B827-90D47C5BA041"), Name = "Stirb langsam" },
-                new Device { Id = new Guid("D4D2CF99-99F1-4E29-B429-C03A6F1FF492"), ProjectId = new Guid("FE04D159-3CD6-4A19-A53E-48AB4425B5FD"), Name = "Titanic" }
+                new Device { Id = new Guid("93752F09-7EB5-4D1C-8C25-B744A5C4DBBE"), ProjectId = new Guid("ED9C66C8-E2EB-4764-B625-96657B603D25"), Name = "DummyDevice -K300" },
+                new Device { Id = new Guid("C5D683D9-F1F2-4C7A-9F3A-857AB00F2105"), ProjectId = new Guid("087B0654-C840-43A2-B827-90D47C5BA041"), Name = "DummyDevice -S200" },
+                new Device { Id = new Guid("D4D2CF99-99F1-4E29-B429-C03A6F1FF492"), ProjectId = new Guid("FE04D159-3CD6-4A19-A53E-48AB4425B5FD"), Name = "DummyDevice -S450" }
                 );
 
         }

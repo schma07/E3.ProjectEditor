@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ProjectEditor.Core.Entities.Devices
 {
-    public partial class Device : DeviceBase
+    public partial class Device : DeviceBase, IEntity
     {
         DateTime CreateDate { get; set; } = DateTime.Now;
         DateTime? ModifyDate { get; set; }

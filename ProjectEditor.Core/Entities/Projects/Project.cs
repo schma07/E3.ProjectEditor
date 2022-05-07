@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ProjectEditor.Core.Entities.Projects
 {
-    public partial class Project : ProjectBase
+    public partial class Project : ProjectBase, IEntity
     {
         public Project()
         {
