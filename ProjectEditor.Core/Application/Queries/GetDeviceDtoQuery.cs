@@ -6,11 +6,9 @@ using System.Text;
 
 namespace ProjectEditor.Core.Application.Queries
 {
-    public class GetDeviceDtoQuery
+    public class GetDeviceDtoQuery : IRequest<DeviceDto>
     {
-        public class GetMovieDtoQuery : IRequest<DeviceDto>
-        {
-            public Guid Id { get; set; }
-        }
+        public Guid Id { get; set; }
     }
+
 }
