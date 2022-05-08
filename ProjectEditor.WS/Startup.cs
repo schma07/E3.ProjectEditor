@@ -49,8 +49,6 @@ namespace ProjectEditor.WS
             });
 
 
-
-
             services.AddControllers();
         }
 
@@ -61,6 +59,14 @@ namespace ProjectEditor.WS
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //Swagger UI konfigurieren
+            app.UseSwagger();
+            app.UseSwaggerUI(ui =>
+            {
+                ui.SwaggerEndpoint("/swagger/v1/swagger.json", "ProjectEdior - Service");
+
+            });
 
             app.UseHttpsRedirection();
 
