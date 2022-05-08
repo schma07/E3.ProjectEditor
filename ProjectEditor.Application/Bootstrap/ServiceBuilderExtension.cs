@@ -9,7 +9,7 @@ namespace ProjectEditor.Application.Bootstrap
 {
     public static class ServiceBuilderExtension
     {
-        public static void RegisterRepositories(this IServiceCollection services)
+        public static void RegisterApplicationServices(this IServiceCollection services)
         {
             services.Scan(scan => scan
                     .FromAssemblies(Assembly.GetExecutingAssembly())
