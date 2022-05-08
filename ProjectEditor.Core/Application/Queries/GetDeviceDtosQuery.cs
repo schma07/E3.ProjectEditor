@@ -8,7 +8,7 @@ namespace ProjectEditor.Core.Application.Queries
 {
     public class GetDeviceDtosQuery : IRequest<IEnumerable<DeviceDto>>
     {
-        public Project Project { get; set; }
+        public Guid ProjectId { get; set; }
 
         public int Take { get; set; }
         public int Skip { get; set; }

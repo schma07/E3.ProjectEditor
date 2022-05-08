@@ -12,8 +12,7 @@ namespace ProjectEditor.Core.Entities.Customers
 
         public Customer()
         {
-            this.Projects = new HashSet<Project>();
-            
+            this.Projects = new HashSet<Project>();            
         }
 
         public ICollection<Project> Projects { get; }
