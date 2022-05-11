@@ -15,8 +15,8 @@ using Microsoft.EntityFrameworkCore;
 namespace ProjectEditor.Application.Devices
 {
     [MapServiceDependency(nameof(DeviceQueryHandler))]
-    public class DeviceQueryHandler :IRequestHandler<GetDeviceDtosQuery, IEnumerable<DeviceDto>>,
-                                     IRequestHandler<GetDeviceDtoQuery, DeviceDto>
+    public class DeviceQueryHandler : IRequestHandler<GetDeviceDtosQuery, IEnumerable<DeviceDto>>,
+                                      IRequestHandler<GetDeviceDtoQuery, DeviceDto>  
     {
         public readonly IDeviceRepository deviceRepository;
 
