@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProjectEditor.Application\ProjectEditor.Application.csproj" />
-    <ProjectReference Include="..\ProjectEditor.Core\ProjectEditor.Core.csproj" />
   </ItemGroup>
 
 
