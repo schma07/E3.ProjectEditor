@@ -27,7 +27,7 @@ namespace ProjectEditor.WS.Controllers
         }
 
         [HttpGet(nameof(DeviceDto))]
-        public async Task<IEnumerable<DeviceDto>> GetMovieDtos([FromQuery] GetDeviceDtosQuery query, CancellationToken cancellationToken)
+        public async Task<IEnumerable<DeviceDto>> GetDeviceDtos([FromQuery] GetDeviceDtosQuery query, CancellationToken cancellationToken)
         {
             return await base.Mediator.Send(query, cancellationToken);
         }
@@ -35,7 +35,7 @@ namespace ProjectEditor.WS.Controllers
 
         [ProducesResponseType(typeof(DeviceDto), (int)HttpStatusCode.Created)]
         [HttpPost(nameof(DeviceDto))]
-        public async Task<DeviceDto> CreateMovieDto(CancellationToken cancellationToken)
+        public async Task<DeviceDto> CreateDeviceDto(CancellationToken cancellationToken)
         {
             var command = new CreateDeviceDtoCommand();
             var result = await base.Mediator.Send(command, cancellationToken);
@@ -46,13 +46,13 @@ namespace ProjectEditor.WS.Controllers
         }
 
         [HttpPut(nameof(DeviceDto) + ID_PARAMETER)]
-        public async Task<DeviceDto> UpdateMovieDto([FromQuery] UpdateDeviceDtoCommand command, CancellationToken cancellationToken)
+        public async Task<DeviceDto> UpdateDeviceDto([FromQuery] UpdateDeviceDtoCommand command, CancellationToken cancellationToken)
         {
             return await base.Mediator.Send(command, cancellationToken);
         }
 
         [HttpDelete(nameof(DeviceDto) + ID_PARAMETER)]
-        public async Task<bool> DeleteMovieDto([FromQuery] DeleteDeviceDtoCommand command, CancellationToken cancellationToken)
+        public async Task<bool> DeleteDeviceDto([FromQuery] DeleteDeviceDtoCommand command, CancellationToken cancellationToken)
         {
             return await base.Mediator.Send(command, cancellationToken);
         }

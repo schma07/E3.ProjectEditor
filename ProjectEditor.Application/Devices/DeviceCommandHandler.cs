@@ -35,7 +35,7 @@ namespace ProjectEditor.Application.Devices
                 Name = "tbd",
                 Project = null,
                 ProjectId = Guid.Empty
-        };
+            };
             return Task.FromResult(DeviceDto.MapFrom(device));
 
     }
@@ -67,7 +67,6 @@ namespace ProjectEditor.Application.Devices
             }
 
             return request.DeviceDto;
-
         }
 
         public async Task<bool> Handle(DeleteDeviceDtoCommand request, CancellationToken cancellationToken)
