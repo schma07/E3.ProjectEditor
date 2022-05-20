@@ -38,10 +38,10 @@ namespace ProjectEditor.Application.Devices
             };
             return Task.FromResult(DeviceDto.MapFrom(device));
 
-    }
+        }
 
-    public async Task<DeviceDto> Handle(UpdateDeviceDtoCommand request, CancellationToken cancellationToken)
-    {
+        public async Task<DeviceDto> Handle(UpdateDeviceDtoCommand request, CancellationToken cancellationToken)
+        {
             /* ID im DTO mit ID aus Route überschreiben*/
             request.DeviceDto.Id = request.Id;
             var isNew = false;
