@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using ProjectEditor.Application.Bootstrap;
 using ProjectEditor.Application.Devices;
 using ProjectEditor.Persistence.Bootstrap;
@@ -46,6 +47,32 @@ namespace ProjectEditor.WS
             {
                 g.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ProjectEditor - Service", Version = "v1" });
 
+
+
+                // Button für Authorisierung in Swagger
+                g.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic",
+                    In = ParameterLocation.Header,
+                    Description = "Basic Authorization header using the basic Scheme!"
+                });
+
+                g.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                        Reference = new OpenApiReference
+                        {
+                            Type=ReferenceType.SecurityScheme,
+                            Id ="basic"
+                        }
+                    },
+                    new string[] {}
+                }
+                });
             });
 
 
@@ -72,7 +99,8 @@ namespace ProjectEditor.WS
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication(); 
+            app.UseAuthorization(); 
 
             app.UseEndpoints(endpoints =>
             {
