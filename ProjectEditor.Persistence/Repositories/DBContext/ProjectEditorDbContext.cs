@@ -72,10 +72,6 @@ namespace ProjectEditor.Persistence.Repositories.DBContext
                 .HasForeignKey(g => g.CustomerId) 
                 .OnDelete(DeleteBehavior.Restrict); 
 
-
-
-
-
             modelBuilder.Entity<Customer>().HasData(
                 new Customer { Id = new Guid ("2A81C327-07A9-4B1D-A400-222B785F6481"), Name = "DummyCustomer Mani & Friends" },
                 new Customer { Id = new Guid("02D2F7A4-8C6E-4F2E-873E-7EDC45314939"), Name = "DummyCustomer Hudli und Murks" },

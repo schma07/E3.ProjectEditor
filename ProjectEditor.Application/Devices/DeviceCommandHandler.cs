@@ -16,8 +16,8 @@ using System.Threading.Tasks;
 namespace ProjectEditor.Application.Devices
 {
     [MapServiceDependency(nameof(DeviceCommandHandler))]
-    public class DeviceCommandHandler : IRequestHandler<CreateDeviceDtoCommand, DeviceDto>,
-                                        IRequestHandler<UpdateDeviceDtoCommand, DeviceDto>
+    public class DeviceCommandHandler : BaseCommandHandler, IRequestHandler<CreateDeviceDtoCommand, DeviceDto>,
+                                                            IRequestHandler<UpdateDeviceDtoCommand, DeviceDto>
     {
         private IDeviceRepository deviceRepository;
 
