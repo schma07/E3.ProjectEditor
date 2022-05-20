@@ -16,8 +16,11 @@ namespace ProjectEditor.WS.Controllers
     [Route("api/[controller]")]
      public class DeviceController : BaseController
     {
-        
-        [HttpGet(nameof(DeviceDto) + "/{Id}")]
+
+        private const string ID_PARAMETER = "/{Id}";
+
+
+        [HttpGet(nameof(DeviceDto) + ID_PARAMETER)]
         public async Task<DeviceDto> GetDeviceDto([FromRoute] GetDeviceDtoQuery query, CancellationToken cancellationToken)
         {
             return await this.Mediator.Send(query, cancellationToken);
@@ -40,6 +43,18 @@ namespace ProjectEditor.WS.Controllers
             //Todo: Location header implementieren
 
             return base.SetLocatioURI<DeviceDto>(result, result.Id.ToString());
+        }
+
+        [HttpPut(nameof(DeviceDto) + ID_PARAMETER)]
+        public async Task<DeviceDto> UpdateMovieDto([FromQuery] UpdateDeviceDtoCommand command, CancellationToken cancellationToken)
+        {
+            return await base.Mediator.Send(command, cancellationToken);
+        }
+
+        [HttpDelete(nameof(DeviceDto) + ID_PARAMETER)]
+        public async Task<bool> DeleteMovieDto([FromQuery] DeleteDeviceDtoCommand command, CancellationToken cancellationToken)
+        {
+            return await base.Mediator.Send(command, cancellationToken);
         }
     }
 }

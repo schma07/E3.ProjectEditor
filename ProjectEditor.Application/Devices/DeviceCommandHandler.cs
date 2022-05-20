@@ -17,7 +17,8 @@ namespace ProjectEditor.Application.Devices
 {
     [MapServiceDependency(nameof(DeviceCommandHandler))]
     public class DeviceCommandHandler : BaseCommandHandler, IRequestHandler<CreateDeviceDtoCommand, DeviceDto>,
-                                                            IRequestHandler<UpdateDeviceDtoCommand, DeviceDto>
+                                                            IRequestHandler<UpdateDeviceDtoCommand, DeviceDto>,
+                                                            IRequestHandler<DeleteDeviceDtoCommand, bool>
     {
         private IDeviceRepository deviceRepository;
 
@@ -43,21 +44,36 @@ namespace ProjectEditor.Application.Devices
     {
             /* ID im DTO mit ID aus Route überschreiben*/
             request.DeviceDto.Id = request.Id;
+            var isNew = false;
 
             var device = await this.deviceRepository.QueryFrom<Device>().Where(w => w.Id == request.Id).FirstOrDefaultAsync(cancellationToken);
 
             /* Insert */
             if (device == null)
             {
-
+                device = new Device();
+                isNew = true;
             }
-            /* update */
+            /* Update */
+            base.MapEntityProperties<DeviceDto, Device>(request.DeviceDto, device);
+
+            if (isNew)
+            {
+                await this.deviceRepository.AddAsync(device, true, cancellationToken);
+            }
             else
             {
-
+                await this.deviceRepository.UpdateAsync(device, device.Id, true, cancellationToken);
             }
-            return new DeviceDto();
 
+            return request.DeviceDto;
+
+        }
+
+        public async Task<bool> Handle(DeleteDeviceDtoCommand request, CancellationToken cancellationToken)
+        {
+            await deviceRepository.RemoveByKeyAsync<Device>(request.Id, true, cancellationToken);
+            return true;
         }
     }
 
