@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,8 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using ProjectEditor.Application.Authentication;
 using ProjectEditor.Application.Bootstrap;
 using ProjectEditor.Application.Devices;
+using ProjectEditor.Common.Services;
 using ProjectEditor.Persistence.Bootstrap;
 using ProjectEditor.Persistence.Repositories.DBContext;
 using System.Reflection;
@@ -37,6 +40,12 @@ namespace ProjectEditor.WS
 
             // Repositories registrieren
             services.RegisterRepositories();
+
+            // User Service registrieren
+            services.AddScoped<IUserService, UserService>();
+
+            services.AddAuthentication("BasicAuthentication")
+                    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             // MediatR inkl. Handler registrieren
             services.AddMediatR(typeof(DeviceQueryHandler).GetTypeInfo().Assembly);

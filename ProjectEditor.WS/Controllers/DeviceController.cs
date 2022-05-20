@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace ProjectEditor.WS.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
      public class DeviceController : BaseController
