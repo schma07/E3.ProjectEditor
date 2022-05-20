@@ -14,11 +14,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.25" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ProjectEditor.Application\ProjectEditor.Application.csproj" />
-    <ProjectReference Include="..\ProjectEditor.Persistence\ProjectEditor.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
