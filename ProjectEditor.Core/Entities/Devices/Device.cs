@@ -12,7 +12,7 @@ namespace ProjectEditor.Core.Entities.Devices
         DateTime? ModifyDate { get; set; }
 
         [ForeignKey(nameof(DeviceBase.ProjectId))]
-        public Project Project { get; set; }   
+        public Project Project { get; set; }
 
     }
 }

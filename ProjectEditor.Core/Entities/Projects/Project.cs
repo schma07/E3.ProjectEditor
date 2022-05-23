@@ -17,7 +17,7 @@ namespace ProjectEditor.Core.Entities.Projects
         DateTime CreateDate { get; set; } = DateTime.Now;
         DateTime? ModifyDate { get; set; }
 
-
+        
         
         
         public ICollection<Device> Devices { get; }

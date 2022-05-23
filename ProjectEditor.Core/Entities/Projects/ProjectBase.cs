@@ -8,6 +8,7 @@ namespace ProjectEditor.Core.Entities.Projects
     public abstract class ProjectBase
     {
         public virtual Guid Id { get; set; }
+        public string Name { get; set; }   
 
         public Guid CustomerId { get; set; }
 

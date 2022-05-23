@@ -13,7 +13,8 @@ namespace ProjectEditor.Core.Application.Results
             {
                 Id = device.Id,
                 Name = device.Name, 
-                ProjectId = device.ProjectId
+                ProjectId = device.ProjectId              
+                
             };
         }
     }
