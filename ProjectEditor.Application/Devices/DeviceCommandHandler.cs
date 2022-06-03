@@ -35,6 +35,7 @@ namespace ProjectEditor.Application.Devices
                 Name = "tbd",
                 Project = null,
                 ProjectId = Guid.Empty
+                
             };
             return Task.FromResult(DeviceDto.MapFrom(device));
 

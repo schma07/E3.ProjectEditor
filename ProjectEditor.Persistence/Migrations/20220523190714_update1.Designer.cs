@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectEditor.Persistence.Repositories.DBContext;
 
 namespace ProjectEditor.Persistence.Migrations
 {
     [DbContext(typeof(ProjectEditorDbContext))]
-    partial class ProjectEditorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220523190714_update1")]
+    partial class update1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,22 +27,7 @@ namespace ProjectEditor.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("Timestamp")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<DateTime?>("Updated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -51,19 +38,16 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2a81c327-07a9-4b1d-a400-222b785f6481"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyCustomer Mani & Friends"
                         },
                         new
                         {
                             Id = new Guid("02d2f7a4-8c6e-4f2e-873e-7edc45314939"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyCustomer Hudli und Murks"
                         },
                         new
                         {
                             Id = new Guid("651dd1b3-5abe-4884-9be8-59338c6165c8"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyCustomer Blue Monday"
                         });
                 });
@@ -74,26 +58,15 @@ namespace ProjectEditor.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256)
+                        .HasDefaultValue("Unknown");
 
                     b.Property<Guid>("ProjectId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<byte[]>("Timestamp")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<DateTime?>("Updated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -105,21 +78,18 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("93752f09-7eb5-4d1c-8c25-b744a5c4dbbe"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyDevice -K300",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
                         },
                         new
                         {
                             Id = new Guid("c5d683d9-f1f2-4c7a-9f3a-857ab00f2105"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyDevice -S200",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
                         },
                         new
                         {
                             Id = new Guid("d4d2cf99-99f1-4e29-b429-c03a6f1ff492"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyDevice -S450",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
                         });
@@ -131,25 +101,10 @@ namespace ProjectEditor.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("Timestamp")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<DateTime?>("Updated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -162,21 +117,18 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CustomerId = new Guid("2a81c327-07a9-4b1d-a400-222b785f6481"),
                             Name = "TimeControl 2.1"
                         },
                         new
                         {
                             Id = new Guid("087b0654-c840-43a2-b827-90d47c5ba041"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CustomerId = new Guid("02d2f7a4-8c6e-4f2e-873e-7edc45314939"),
                             Name = "WeatherChanger V1.0"
                         },
                         new
                         {
                             Id = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd"),
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CustomerId = new Guid("651dd1b3-5abe-4884-9be8-59338c6165c8"),
                             Name = "Water2Wine Vers.A"
                         });

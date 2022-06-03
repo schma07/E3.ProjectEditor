@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using NPOI.SS.Formula.Functions;
 using ProjectEditor.Core.Entities.Customers;
 using ProjectEditor.Core.Entities.Devices;
 using ProjectEditor.Core.Entities.Projects;
@@ -52,14 +53,17 @@ namespace ProjectEditor.Persistence.Repositories.DBContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+
+
             // Constraints 
             modelBuilder.Entity<Device>()
                 .HasOne(m => m.Project)
                 .WithMany(m => m.Devices)
-                .HasForeignKey(m => m.ProjectId)
+                .HasForeignKey(m => m.ProjectId)                
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Project>()
+               
                 .HasOne(m => m.Customer)
                 .WithMany(m => m.Projects)
                 .HasForeignKey(m => m.CustomerId)
@@ -79,9 +83,9 @@ namespace ProjectEditor.Persistence.Repositories.DBContext
                 );
 
             modelBuilder.Entity<Project>().HasData(
-                new Project { Id = new Guid("ED9C66C8-E2EB-4764-B625-96657B603D25"), CustomerId = new Guid("2A81C327-07A9-4B1D-A400-222B785F6481") },
-                new Project { Id = new Guid("087B0654-C840-43A2-B827-90D47C5BA041"), CustomerId = new Guid("02D2F7A4-8C6E-4F2E-873E-7EDC45314939") },
-                new Project { Id = new Guid("FE04D159-3CD6-4A19-A53E-48AB4425B5FD"), CustomerId = new Guid("651DD1B3-5ABE-4884-9BE8-59338C6165C8") }                
+                new Project { Id = new Guid("ED9C66C8-E2EB-4764-B625-96657B603D25"), Name ="TimeControl 2.1", CustomerId = new Guid("2A81C327-07A9-4B1D-A400-222B785F6481") },
+                new Project { Id = new Guid("087B0654-C840-43A2-B827-90D47C5BA041"), Name ="WeatherChanger V1.0", CustomerId = new Guid("02D2F7A4-8C6E-4F2E-873E-7EDC45314939") },
+                new Project { Id = new Guid("FE04D159-3CD6-4A19-A53E-48AB4425B5FD"), Name = "Water2Wine Vers.A", CustomerId = new Guid("651DD1B3-5ABE-4884-9BE8-59338C6165C8") }                
                 );
 
             modelBuilder.Entity<Device>().HasData(

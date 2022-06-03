@@ -7,15 +7,19 @@ namespace ProjectEditor.Core.Entities.Customers
 {
     public partial class Customer : CustomerBase, IEntity
     {
-        DateTime CreateDate { get; set; } = DateTime.Now;
-        DateTime? ModifyDate { get; set; }
+        /* Standard properties*/
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime? Updated { get; set; }
+        public string UpdatedBy { get; set; }
+
+        /* Navigation properties */
+        public virtual ICollection<Project> Projects { get; }
 
         public Customer()
         {
-            this.Projects = new HashSet<Project>();            
+            this.Projects = new HashSet<Project>();
         }
-
-        public ICollection<Project> Projects { get; }
 
     }
 }

@@ -5,11 +5,12 @@ using System.Text;
 namespace ProjectEditor.Core.Entities.Devices
 {
     public abstract class DeviceBase
-    {
+    {       
+        
         public virtual Guid Id { get; set; }
-
         public string Name { get; set; } = string.Empty;
-
+                           
+        /* Foreign Key(s) */
         public Guid ProjectId { get; set; }
 
     }
