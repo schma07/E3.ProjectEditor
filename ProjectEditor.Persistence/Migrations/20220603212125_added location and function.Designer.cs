@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectEditor.Persistence.Repositories.DBContext;
 
 namespace ProjectEditor.Persistence.Migrations
 {
     [DbContext(typeof(ProjectEditorDbContext))]
-    partial class ProjectEditorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220603212125_added location and function")]
+    partial class addedlocationandfunction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,22 +50,19 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2a81c327-07a9-4b1d-a400-222b785f6481"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 443, DateTimeKind.Local).AddTicks(7647),
-                            CreatedBy = "Created via DbContext",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyCustomer Mani & Friends"
                         },
                         new
                         {
                             Id = new Guid("02d2f7a4-8c6e-4f2e-873e-7edc45314939"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 445, DateTimeKind.Local).AddTicks(7240),
-                            CreatedBy = "Created via DbContext",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyCustomer Hudli und Murks"
                         },
                         new
                         {
                             Id = new Guid("651dd1b3-5abe-4884-9be8-59338c6165c8"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 445, DateTimeKind.Local).AddTicks(7278),
-                            CreatedBy = "Created via DbContext",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyCustomer Blue Monday"
                         });
                 });
@@ -105,8 +104,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("93752f09-7eb5-4d1c-8c25-b744a5c4dbbe"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(6037),
-                            CreatedBy = "Created via DbContext",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyDevice A via DbContext",
                             NameInSchematic = "-K300",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
@@ -114,8 +112,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c5d683d9-f1f2-4c7a-9f3a-857ab00f2105"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(6327),
-                            CreatedBy = "Created via DbContext",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyDevice B via DbContext",
                             NameInSchematic = "-S200",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
@@ -123,8 +120,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d4d2cf99-99f1-4e29-b429-c03a6f1ff492"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(6347),
-                            CreatedBy = "Created via DbContext",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DummyDevice C via DbContext",
                             NameInSchematic = "-K100",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
@@ -133,9 +129,8 @@ namespace ProjectEditor.Persistence.Migrations
 
             modelBuilder.Entity("ProjectEditor.Core.Entities.Projects.Function", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("NameInSchematic")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -144,10 +139,6 @@ namespace ProjectEditor.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameInSchematic")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ProjectId")
@@ -159,7 +150,7 @@ namespace ProjectEditor.Persistence.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("NameInSchematic");
 
                     b.HasIndex("ProjectId");
 
@@ -168,38 +159,31 @@ namespace ProjectEditor.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("163de71d-3f88-4b0a-aed9-2d03d9d29bae"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(3599),
-                            CreatedBy = "Created via DbContext",
-                            Description = "hold my beer",
                             NameInSchematic = "=Dummy.hmb",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "hold my beer",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
                         },
                         new
                         {
-                            Id = new Guid("fa4e431e-efe8-42f3-ba42-ea8c230567ae"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(3885),
-                            CreatedBy = "Created via DbContext",
-                            Description = "dancing on the table",
                             NameInSchematic = "=Dummy.dOtT",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "dancing on the table",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
                         },
                         new
                         {
-                            Id = new Guid("495ac5cd-6c39-401e-b206-ef9f349407a4"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(3904),
-                            CreatedBy = "Created via DbContext",
-                            Description = "execute supernova",
                             NameInSchematic = "=Dummy.SUPER",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "execute supernova",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
                         });
                 });
 
             modelBuilder.Entity("ProjectEditor.Core.Entities.Projects.Location", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("NameInSchematic")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -208,10 +192,6 @@ namespace ProjectEditor.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameInSchematic")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ProjectId")
@@ -223,7 +203,7 @@ namespace ProjectEditor.Persistence.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("NameInSchematic");
 
                     b.HasIndex("ProjectId");
 
@@ -232,29 +212,23 @@ namespace ProjectEditor.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("03e6c2e0-de3b-4dad-9f73-98b26e206f3d"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(1767),
-                            CreatedBy = "Created via DbContext",
-                            Description = "6 feet under",
                             NameInSchematic = "+Dummy.LocA",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "6 feet under",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
                         },
                         new
                         {
-                            Id = new Guid("c6074116-b961-4232-acb4-2c663ff456c8"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(2062),
-                            CreatedBy = "Created via DbContext",
-                            Description = "up in sky",
                             NameInSchematic = "+Dummy.LocB",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "up in sky",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
                         },
                         new
                         {
-                            Id = new Guid("23d13a3a-245a-4178-8cce-09a9bd28781d"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(2091),
-                            CreatedBy = "Created via DbContext",
-                            Description = "6 feet under",
                             NameInSchematic = "+Dummy.LocC",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "6 feet under",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
                         });
                 });
@@ -296,29 +270,23 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 446, DateTimeKind.Local).AddTicks(9913),
-                            CreatedBy = "Created via DbContext",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CustomerId = new Guid("2a81c327-07a9-4b1d-a400-222b785f6481"),
-                            Name = "TimeControl 2.1",
-                            ProjectManagerName = "Nero"
+                            Name = "TimeControl 2.1"
                         },
                         new
                         {
                             Id = new Guid("087b0654-c840-43a2-b827-90d47c5ba041"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(239),
-                            CreatedBy = "Created via DbContext",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CustomerId = new Guid("02d2f7a4-8c6e-4f2e-873e-7edc45314939"),
-                            Name = "WeatherChanger V1.0",
-                            ProjectManagerName = "Montgomery Burns"
+                            Name = "WeatherChanger V1.0"
                         },
                         new
                         {
                             Id = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = "Created via DbContext",
                             CustomerId = new Guid("651dd1b3-5abe-4884-9be8-59338c6165c8"),
-                            Name = "Water2Wine Vers.A",
-                            ProjectManagerName = "Queen Mary"
+                            Name = "Water2Wine Vers.A"
                         });
                 });
 

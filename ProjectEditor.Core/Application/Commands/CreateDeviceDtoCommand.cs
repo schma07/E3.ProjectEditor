@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿ using MediatR;
 using ProjectEditor.Core.Application.Results;
 
 namespace ProjectEditor.Core.Application.Commands

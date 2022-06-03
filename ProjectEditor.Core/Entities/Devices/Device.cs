@@ -8,6 +8,8 @@ namespace ProjectEditor.Core.Entities.Devices
 {
     public partial class Device : DeviceBase, IEntity
     {
+        public string NameInSchematic { get; set; }
+
         /* Standard properties*/
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

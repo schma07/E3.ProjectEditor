@@ -16,7 +16,6 @@ namespace ProjectEditor.Application.Bootstrap
                     .AddClasses(c => c.WithAttribute<MapServiceDependencyAttribute>())        // Registriert alle Klassen die das Attribut tragen
                     .AsImplementedInterfaces()
                     .WithScopedLifetime());
-
         }
     }
 }
