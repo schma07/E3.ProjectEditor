@@ -13,9 +13,8 @@ namespace ProjectEditor.Core.Application.Results
             {
                 Id = device.Id,
                 Description = device.Description, 
-                ProjectId = device.ProjectId,             
-                NameInSchematic = device.NameInSchematic 
-
+                ProjectId = device.ProjectId              
+                
             };
         }
     }

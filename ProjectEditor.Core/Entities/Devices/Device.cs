@@ -8,8 +8,7 @@ namespace ProjectEditor.Core.Entities.Devices
 {
     public partial class Device : DeviceBase, IEntity
     {
-        public string NameInSchematic { get; set; }
-
+        
         /* Standard properties*/
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }
@@ -18,7 +17,14 @@ namespace ProjectEditor.Core.Entities.Devices
         
         /* ForeignKey objects */        
         [ForeignKey(nameof(DeviceBase.ProjectId))]
-        public Project Project { get; set; }        
+        public Project Project { get; set; }
+
+        [ForeignKey(nameof(DeviceBase.LocationId))]
+        public Location Location { get; set; }
+
+        [ForeignKey(nameof(DeviceBase.FunctionId))]
+        public Function Function { get; set; }
+                      
 
     }
 }

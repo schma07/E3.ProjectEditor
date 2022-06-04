@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProjectEditor.Core.Application.Results
 {
-    public class DeviceDto  : DeviceBase
+    public class LocationDto  : DeviceBase
     {
         public static DeviceDto MapFrom(Device device)
         {
@@ -13,9 +13,9 @@ namespace ProjectEditor.Core.Application.Results
             {
                 Id = device.Id,
                 Description = device.Description, 
-                ProjectId = device.ProjectId,             
-                NameInSchematic = device.NameInSchematic 
-
+                ProjectId = device.ProjectId
+                
+                
             };
         }
     }

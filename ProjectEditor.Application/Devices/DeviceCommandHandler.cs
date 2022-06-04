@@ -32,7 +32,7 @@ namespace ProjectEditor.Application.Devices
             var device = new Device()
             {
                 Id = Guid.NewGuid(),
-                Name = "tbd",
+                Description = "tbd",
                 Project = null,
                 ProjectId = Guid.Empty
                 
