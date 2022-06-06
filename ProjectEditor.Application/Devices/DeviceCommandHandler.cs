@@ -33,8 +33,8 @@ namespace ProjectEditor.Application.Devices
             {
                 Id = Guid.NewGuid(),
                 Description = "tbd",
-                Project = null,
-                ProjectId = Guid.Empty
+                //Project = null,
+                //ProjectId = Guid.Empty
                 
             };
             return Task.FromResult(DeviceDto.MapFrom(device));

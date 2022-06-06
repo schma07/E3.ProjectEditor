@@ -21,18 +21,23 @@ namespace ProjectEditor.Core.Entities.Projects
         public Project()
         {
             this.Devices = new HashSet<Device>();
-            this.Locations = new HashSet<Location>();
-            this.Functions = new HashSet<Function>();
+            
+
         }
 
-
         /* Navigation properties */
-        public ICollection<Device> Devices { get; }
-        public ICollection<Location> Locations { get; }
-        public ICollection<Function> Functions { get; }
+        public virtual ICollection<Device> Devices { get; }
+        
 
         /* ForeignKey objects */
+        [ForeignKey(nameof(ProjectBase.LocationSetupId))]
+        public LocationSetup LocationSetup { get; set; }
+
+        [ForeignKey(nameof(ProjectBase.FunctionSetupId))]
+        public FunctionSetup FunctionSetup { get; set; }
+
         [ForeignKey(nameof(ProjectBase.CustomerId))]
         public Customer Customer { get; set; }
+
     }
 }

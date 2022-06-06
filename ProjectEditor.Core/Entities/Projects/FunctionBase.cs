@@ -10,7 +10,7 @@ namespace ProjectEditor.Core.Entities.Projects
         public string NameInSchematic { get; set; }
 
         /* Foreign Key(s) */
-        public Guid ProjectId { get; set; }
+        public Guid FunctionSetupId { get; set; }
 
     }
 }

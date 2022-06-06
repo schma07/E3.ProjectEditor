@@ -10,12 +10,13 @@ namespace ProjectEditor.Core.Entities.Devices
         public virtual Guid Id { get; set; }
         public string Description { get; set; } = string.Empty;
         public string NameInSchematic { get; set; }
+        
 
-        /* Foreign Key(s) */
-        public Guid ProjectId { get; set; }
-        public Guid LocationId { get; set; }
-        public Guid FunctionId { get; set; }    
-
+        /* Foreign Key(s) */       
+        
+        public virtual Guid? LocationId { get; set; }
+        public virtual Guid? FunctionId { get; set; }
+        public virtual Guid? ProjectId { get; set; }
     }
     
 }

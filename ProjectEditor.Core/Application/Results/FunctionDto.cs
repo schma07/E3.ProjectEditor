@@ -1,20 +1,21 @@
 ﻿using ProjectEditor.Core.Entities.Devices;
+using ProjectEditor.Core.Entities.Projects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ProjectEditor.Core.Application.Results
 {
-    public class DeviceDto  : DeviceBase
+    public class FunctionDto  : FunctionBase
     {
-        public static DeviceDto MapFrom(Device device)
+        public static FunctionDto MapFrom(Function function)
         {
-            return new DeviceDto
+            return new FunctionDto
             {
-                Id = device.Id,
-                Description = device.Description, 
-                ProjectId = device.ProjectId              
-                
+                Id = function.Id,
+                FunctionSetupId = function.FunctionSetupId,
+                NameInSchematic = function.NameInSchematic,
+                                
             };
         }
     }

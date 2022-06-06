@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectEditor.Persistence.Repositories.DBContext;
 
 namespace ProjectEditor.Persistence.Migrations
 {
     [DbContext(typeof(ProjectEditorDbContext))]
-    partial class ProjectEditorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220606203208_initial_data_part2")]
+    partial class initial_data_part2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

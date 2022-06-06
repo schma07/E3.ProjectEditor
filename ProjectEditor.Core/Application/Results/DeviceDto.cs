@@ -12,8 +12,7 @@ namespace ProjectEditor.Core.Application.Results
             return new DeviceDto
             {
                 Id = device.Id,
-                Description = device.Description, 
-                ProjectId = device.ProjectId,             
+                Description = device.Description,                            
                 NameInSchematic = device.NameInSchematic 
 
             };

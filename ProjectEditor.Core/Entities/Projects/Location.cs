@@ -23,8 +23,8 @@ namespace ProjectEditor.Core.Entities.Projects
         }
 
         /* ForeignKey objects */
-        [ForeignKey(nameof(LocationBase.ProjectId))]
-        public Project Project { get; set; }
+        [ForeignKey(nameof(LocationBase.LocationSetupId))]
+        public LocationSetup LocationSetup { get; set; }
 
         /* Navigation properties */
         public ICollection<Device> Devices { get; }

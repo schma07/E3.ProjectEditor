@@ -10,10 +10,10 @@ namespace ProjectEditor.Core.Entities.Projects
         [Required]
         public string NameInSchematic { get; set; }
         
-       
+               
        
         /* Foreign Key(s) */
-        public Guid ProjectId { get; set; }
+        public Guid LocationSetupId { get; set; }
                 
     }
 }

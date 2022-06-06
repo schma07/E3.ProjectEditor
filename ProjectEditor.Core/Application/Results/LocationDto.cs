@@ -1,21 +1,21 @@
 ﻿using ProjectEditor.Core.Entities.Devices;
+using ProjectEditor.Core.Entities.Projects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ProjectEditor.Core.Application.Results
 {
-    public class LocationDto  : DeviceBase
+    public class LocationDto : LocationBase
     {
-        public static DeviceDto MapFrom(Device device)
+        public static LocationDto MapFrom(Location location)
         {
-            return new DeviceDto
+            return new LocationDto
             {
-                Id = device.Id,
-                Description = device.Description, 
-                ProjectId = device.ProjectId
-                
-                
+                Id = location.Id,
+                LocationSetupId = location.LocationSetupId,
+                NameInSchematic = location.NameInSchematic
+
             };
         }
     }

@@ -10,8 +10,8 @@ using ProjectEditor.Persistence.Repositories.DBContext;
 namespace ProjectEditor.Persistence.Migrations
 {
     [DbContext(typeof(ProjectEditorDbContext))]
-    [Migration("20220603221918_final including locations and functions_2")]
-    partial class finalincludinglocationsandfunctions_2
+    [Migration("20220606203047_initial_data_part1")]
+    partial class initial_data_part1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,21 +50,21 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2a81c327-07a9-4b1d-a400-222b785f6481"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 443, DateTimeKind.Local).AddTicks(7647),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 868, DateTimeKind.Local).AddTicks(9158),
                             CreatedBy = "Created via DbContext",
                             Name = "DummyCustomer Mani & Friends"
                         },
                         new
                         {
                             Id = new Guid("02d2f7a4-8c6e-4f2e-873e-7edc45314939"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 445, DateTimeKind.Local).AddTicks(7240),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 871, DateTimeKind.Local).AddTicks(1881),
                             CreatedBy = "Created via DbContext",
                             Name = "DummyCustomer Hudli und Murks"
                         },
                         new
                         {
                             Id = new Guid("651dd1b3-5abe-4884-9be8-59338c6165c8"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 445, DateTimeKind.Local).AddTicks(7278),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 871, DateTimeKind.Local).AddTicks(1917),
                             CreatedBy = "Created via DbContext",
                             Name = "DummyCustomer Blue Monday"
                         });
@@ -82,13 +82,19 @@ namespace ProjectEditor.Persistence.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("FunctionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("LocationId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NameInSchematic")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ProjectId")
+                    b.Property<Guid?>("ProjectId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("Updated")
@@ -99,6 +105,10 @@ namespace ProjectEditor.Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FunctionId");
+
+                    b.HasIndex("LocationId");
+
                     b.HasIndex("ProjectId");
 
                     b.ToTable("Devices");
@@ -107,27 +117,30 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("93752f09-7eb5-4d1c-8c25-b744a5c4dbbe"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(6037),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(5716),
                             CreatedBy = "Created via DbContext",
-                            Name = "DummyDevice A via DbContext",
+                            Description = "DummyDevice A via DbContext",
+                            LocationId = new Guid("03e6c2e0-de3b-4dad-9f73-98b26e206f3d"),
                             NameInSchematic = "-K300",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
                         },
                         new
                         {
                             Id = new Guid("c5d683d9-f1f2-4c7a-9f3a-857ab00f2105"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(6327),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(6011),
                             CreatedBy = "Created via DbContext",
-                            Name = "DummyDevice B via DbContext",
+                            Description = "DummyDevice B via DbContext",
+                            LocationId = new Guid("c6074116-b961-4232-acb4-2c663ff456c8"),
                             NameInSchematic = "-S200",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
                         },
                         new
                         {
                             Id = new Guid("d4d2cf99-99f1-4e29-b429-c03a6f1ff492"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(6347),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(6033),
                             CreatedBy = "Created via DbContext",
-                            Name = "DummyDevice C via DbContext",
+                            Description = "DummyDevice C via DbContext",
+                            LocationId = new Guid("23d13a3a-245a-4178-8cce-09a9bd28781d"),
                             NameInSchematic = "-K100",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
                         });
@@ -148,8 +161,68 @@ namespace ProjectEditor.Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("FunctionSetupId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("NameInSchematic")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FunctionSetupId");
+
+                    b.ToTable("Functions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("163de71d-3f88-4b0a-aed9-2d03d9d29bae"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(3384),
+                            CreatedBy = "Created via DbContext",
+                            Description = "hold my beer",
+                            FunctionSetupId = new Guid("42280b59-961a-4d97-9b5d-b0fcb3eb85fa"),
+                            NameInSchematic = "=Dummy.hmb"
+                        },
+                        new
+                        {
+                            Id = new Guid("fa4e431e-efe8-42f3-ba42-ea8c230567ae"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(3670),
+                            CreatedBy = "Created via DbContext",
+                            Description = "dancing on the table",
+                            FunctionSetupId = new Guid("b00f1038-72d3-44dc-9b49-7cb5cad7c656"),
+                            NameInSchematic = "=Dummy.dOtT"
+                        },
+                        new
+                        {
+                            Id = new Guid("495ac5cd-6c39-401e-b206-ef9f349407a4"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(3691),
+                            CreatedBy = "Created via DbContext",
+                            Description = "execute supernova",
+                            FunctionSetupId = new Guid("7391de1f-3422-426c-a5c8-6695d1be7283"),
+                            NameInSchematic = "=Dummy.SUPER"
+                        });
+                });
+
+            modelBuilder.Entity("ProjectEditor.Core.Entities.Projects.FunctionSetup", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ProjectId")
@@ -163,36 +236,31 @@ namespace ProjectEditor.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("Functions");
+                    b.ToTable("FunctionSetups");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("163de71d-3f88-4b0a-aed9-2d03d9d29bae"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(3599),
+                            Id = new Guid("42280b59-961a-4d97-9b5d-b0fcb3eb85fa"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(905),
                             CreatedBy = "Created via DbContext",
-                            Description = "hold my beer",
-                            NameInSchematic = "=Dummy.hmb",
+                            Name = "Setup for Project ED9C66C8-E2EB-4764-B625-96657B603D25",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
                         },
                         new
                         {
-                            Id = new Guid("fa4e431e-efe8-42f3-ba42-ea8c230567ae"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(3885),
+                            Id = new Guid("b00f1038-72d3-44dc-9b49-7cb5cad7c656"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(1150),
                             CreatedBy = "Created via DbContext",
-                            Description = "dancing on the table",
-                            NameInSchematic = "=Dummy.dOtT",
+                            Name = "Setup for Project 087B0654-C840-43A2-B827-90D47C5BA041",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
                         },
                         new
                         {
-                            Id = new Guid("495ac5cd-6c39-401e-b206-ef9f349407a4"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(3904),
+                            Id = new Guid("7391de1f-3422-426c-a5c8-6695d1be7283"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 873, DateTimeKind.Local).AddTicks(1200),
                             CreatedBy = "Created via DbContext",
-                            Description = "execute supernova",
-                            NameInSchematic = "=Dummy.SUPER",
+                            Name = "Setup for Project FE04D159-3CD6-4A19-A53E-48AB4425B5FD",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
                         });
                 });
@@ -212,8 +280,68 @@ namespace ProjectEditor.Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("LocationSetupId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("NameInSchematic")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LocationSetupId");
+
+                    b.ToTable("Locations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("03e6c2e0-de3b-4dad-9f73-98b26e206f3d"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 872, DateTimeKind.Local).AddTicks(8587),
+                            CreatedBy = "Created via DbContext",
+                            Description = "6 feet under",
+                            LocationSetupId = new Guid("31e84c75-a86d-481e-8433-22918d2b3a24"),
+                            NameInSchematic = "+Dummy.LocA"
+                        },
+                        new
+                        {
+                            Id = new Guid("c6074116-b961-4232-acb4-2c663ff456c8"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 872, DateTimeKind.Local).AddTicks(8875),
+                            CreatedBy = "Created via DbContext",
+                            Description = "up in sky",
+                            LocationSetupId = new Guid("7660ceb6-fda5-449e-ba09-9796d00c555f"),
+                            NameInSchematic = "+Dummy.LocB"
+                        },
+                        new
+                        {
+                            Id = new Guid("23d13a3a-245a-4178-8cce-09a9bd28781d"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 872, DateTimeKind.Local).AddTicks(8896),
+                            CreatedBy = "Created via DbContext",
+                            Description = "6 feet under",
+                            LocationSetupId = new Guid("375b873e-b57f-496f-a919-07f7a462a3c5"),
+                            NameInSchematic = "+Dummy.LocC"
+                        });
+                });
+
+            modelBuilder.Entity("ProjectEditor.Core.Entities.Projects.LocationSetup", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ProjectId")
@@ -227,36 +355,31 @@ namespace ProjectEditor.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("Locations");
+                    b.ToTable("LocationSetups");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("03e6c2e0-de3b-4dad-9f73-98b26e206f3d"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(1767),
+                            Id = new Guid("31e84c75-a86d-481e-8433-22918d2b3a24"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 872, DateTimeKind.Local).AddTicks(6508),
                             CreatedBy = "Created via DbContext",
-                            Description = "6 feet under",
-                            NameInSchematic = "+Dummy.LocA",
+                            Name = "Setup for Project ED9C66C8-E2EB-4764-B625-96657B603D25",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
                         },
                         new
                         {
-                            Id = new Guid("c6074116-b961-4232-acb4-2c663ff456c8"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(2062),
+                            Id = new Guid("7660ceb6-fda5-449e-ba09-9796d00c555f"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 872, DateTimeKind.Local).AddTicks(6801),
                             CreatedBy = "Created via DbContext",
-                            Description = "up in sky",
-                            NameInSchematic = "+Dummy.LocB",
+                            Name = "Setup for Project 087B0654-C840-43A2-B827-90D47C5BA041",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
                         },
                         new
                         {
-                            Id = new Guid("23d13a3a-245a-4178-8cce-09a9bd28781d"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(2091),
+                            Id = new Guid("375b873e-b57f-496f-a919-07f7a462a3c5"),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 872, DateTimeKind.Local).AddTicks(6823),
                             CreatedBy = "Created via DbContext",
-                            Description = "6 feet under",
-                            NameInSchematic = "+Dummy.LocC",
+                            Name = "Setup for Project FE04D159-3CD6-4A19-A53E-48AB4425B5FD",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
                         });
                 });
@@ -273,11 +396,17 @@ namespace ProjectEditor.Persistence.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("CustomerId")
+                    b.Property<Guid?>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("FunctionSetupId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("LocationSetupId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ProjectManagerName")
                         .HasColumnType("nvarchar(max)");
@@ -292,25 +421,31 @@ namespace ProjectEditor.Persistence.Migrations
 
                     b.HasIndex("CustomerId");
 
+                    b.HasIndex("FunctionSetupId");
+
+                    b.HasIndex("LocationSetupId");
+
                     b.ToTable("Projects");
 
                     b.HasData(
                         new
                         {
                             Id = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 446, DateTimeKind.Local).AddTicks(9913),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 872, DateTimeKind.Local).AddTicks(3586),
                             CreatedBy = "Created via DbContext",
                             CustomerId = new Guid("2a81c327-07a9-4b1d-a400-222b785f6481"),
-                            Name = "TimeControl 2.1",
+                            Description = "TimeControl 2.1",
+                            LocationSetupId = new Guid("31e84c75-a86d-481e-8433-22918d2b3a24"),
                             ProjectManagerName = "Nero"
                         },
                         new
                         {
                             Id = new Guid("087b0654-c840-43a2-b827-90d47c5ba041"),
-                            Created = new DateTime(2022, 6, 4, 0, 19, 18, 447, DateTimeKind.Local).AddTicks(239),
+                            Created = new DateTime(2022, 6, 6, 22, 30, 46, 872, DateTimeKind.Local).AddTicks(3901),
                             CreatedBy = "Created via DbContext",
                             CustomerId = new Guid("02d2f7a4-8c6e-4f2e-873e-7edc45314939"),
-                            Name = "WeatherChanger V1.0",
+                            Description = "WeatherChanger V1.0",
+                            LocationSetupId = new Guid("7660ceb6-fda5-449e-ba09-9796d00c555f"),
                             ProjectManagerName = "Montgomery Burns"
                         },
                         new
@@ -319,34 +454,44 @@ namespace ProjectEditor.Persistence.Migrations
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = "Created via DbContext",
                             CustomerId = new Guid("651dd1b3-5abe-4884-9be8-59338c6165c8"),
-                            Name = "Water2Wine Vers.A",
+                            Description = "Water2Wine Vers.A",
+                            LocationSetupId = new Guid("375b873e-b57f-496f-a919-07f7a462a3c5"),
                             ProjectManagerName = "Queen Mary"
                         });
                 });
 
             modelBuilder.Entity("ProjectEditor.Core.Entities.Devices.Device", b =>
                 {
+                    b.HasOne("ProjectEditor.Core.Entities.Projects.Function", "Function")
+                        .WithMany("Devices")
+                        .HasForeignKey("FunctionId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProjectEditor.Core.Entities.Projects.Location", "Location")
+                        .WithMany("Devices")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("ProjectEditor.Core.Entities.Projects.Project", "Project")
                         .WithMany("Devices")
                         .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("ProjectEditor.Core.Entities.Projects.Function", b =>
                 {
-                    b.HasOne("ProjectEditor.Core.Entities.Projects.Project", "Project")
+                    b.HasOne("ProjectEditor.Core.Entities.Projects.FunctionSetup", "FunctionSetup")
                         .WithMany("Functions")
-                        .HasForeignKey("ProjectId")
+                        .HasForeignKey("FunctionSetupId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("ProjectEditor.Core.Entities.Projects.Location", b =>
                 {
-                    b.HasOne("ProjectEditor.Core.Entities.Projects.Project", "Project")
+                    b.HasOne("ProjectEditor.Core.Entities.Projects.LocationSetup", "LocationSetup")
                         .WithMany("Locations")
-                        .HasForeignKey("ProjectId")
+                        .HasForeignKey("LocationSetupId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -356,8 +501,15 @@ namespace ProjectEditor.Persistence.Migrations
                     b.HasOne("ProjectEditor.Core.Entities.Customers.Customer", "Customer")
                         .WithMany("Projects")
                         .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProjectEditor.Core.Entities.Projects.FunctionSetup", "FunctionSetup")
+                        .WithMany()
+                        .HasForeignKey("FunctionSetupId");
+
+                    b.HasOne("ProjectEditor.Core.Entities.Projects.LocationSetup", "LocationSetup")
+                        .WithMany()
+                        .HasForeignKey("LocationSetupId");
                 });
 #pragma warning restore 612, 618
         }
