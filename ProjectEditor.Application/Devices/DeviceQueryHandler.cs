@@ -38,7 +38,7 @@ namespace ProjectEditor.Application.Devices
                                                    .Select(s => DeviceDto.MapFrom(s));
 
 
-            if (query.De != Guid.Empty || query.ProjectId != null)
+            if (query.ProjectId != Guid.Empty || query.ProjectId != null)
             {
                 deviceQuery.Where(d => d.ProjectId == query.ProjectId);
             }

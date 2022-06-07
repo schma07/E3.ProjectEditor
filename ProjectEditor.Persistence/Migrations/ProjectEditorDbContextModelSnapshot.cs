@@ -48,21 +48,21 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2a81c327-07a9-4b1d-a400-222b785f6481"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 465, DateTimeKind.Local).AddTicks(781),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 374, DateTimeKind.Local).AddTicks(5041),
                             CreatedBy = "Created via DbContext",
                             Name = "DummyCustomer Mani & Friends"
                         },
                         new
                         {
                             Id = new Guid("02d2f7a4-8c6e-4f2e-873e-7edc45314939"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 467, DateTimeKind.Local).AddTicks(2872),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 376, DateTimeKind.Local).AddTicks(6302),
                             CreatedBy = "Created via DbContext",
                             Name = "DummyCustomer Hudli und Murks"
                         },
                         new
                         {
                             Id = new Guid("651dd1b3-5abe-4884-9be8-59338c6165c8"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 467, DateTimeKind.Local).AddTicks(2912),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 376, DateTimeKind.Local).AddTicks(6344),
                             CreatedBy = "Created via DbContext",
                             Name = "DummyCustomer Blue Monday"
                         });
@@ -115,7 +115,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("93752f09-7eb5-4d1c-8c25-b744a5c4dbbe"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(8113),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(8112),
                             CreatedBy = "Created via DbContext",
                             Description = "DummyDevice A via DbContext",
                             FunctionId = new Guid("163de71d-3f88-4b0a-aed9-2d03d9d29bae"),
@@ -126,7 +126,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c5d683d9-f1f2-4c7a-9f3a-857ab00f2105"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(8527),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(8478),
                             CreatedBy = "Created via DbContext",
                             Description = "DummyDevice B via DbContext",
                             FunctionId = new Guid("fa4e431e-efe8-42f3-ba42-ea8c230567ae"),
@@ -137,7 +137,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d4d2cf99-99f1-4e29-b429-c03a6f1ff492"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(8548),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(8506),
                             CreatedBy = "Created via DbContext",
                             Description = "DummyDevice C via DbContext",
                             FunctionId = new Guid("495ac5cd-6c39-401e-b206-ef9f349407a4"),
@@ -185,7 +185,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("163de71d-3f88-4b0a-aed9-2d03d9d29bae"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(5648),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(3934),
                             CreatedBy = "Created via DbContext",
                             Description = "hold my beer",
                             FunctionSetupId = new Guid("42280b59-961a-4d97-9b5d-b0fcb3eb85fa"),
@@ -194,7 +194,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fa4e431e-efe8-42f3-ba42-ea8c230567ae"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(5939),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(4442),
                             CreatedBy = "Created via DbContext",
                             Description = "dancing on the table",
                             FunctionSetupId = new Guid("b00f1038-72d3-44dc-9b49-7cb5cad7c656"),
@@ -203,7 +203,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("495ac5cd-6c39-401e-b206-ef9f349407a4"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(5959),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(4479),
                             CreatedBy = "Created via DbContext",
                             Description = "execute supernova",
                             FunctionSetupId = new Guid("7391de1f-3422-426c-a5c8-6695d1be7283"),
@@ -243,7 +243,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("42280b59-961a-4d97-9b5d-b0fcb3eb85fa"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(2764),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(99),
                             CreatedBy = "Created via DbContext",
                             Name = "Setup for Project ED9C66C8-E2EB-4764-B625-96657B603D25",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
@@ -251,7 +251,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b00f1038-72d3-44dc-9b49-7cb5cad7c656"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(3007),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(424),
                             CreatedBy = "Created via DbContext",
                             Name = "Setup for Project 087B0654-C840-43A2-B827-90D47C5BA041",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
@@ -259,7 +259,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7391de1f-3422-426c-a5c8-6695d1be7283"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(3022),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 379, DateTimeKind.Local).AddTicks(493),
                             CreatedBy = "Created via DbContext",
                             Name = "Setup for Project FE04D159-3CD6-4A19-A53E-48AB4425B5FD",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
@@ -304,7 +304,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("03e6c2e0-de3b-4dad-9f73-98b26e206f3d"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(372),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 378, DateTimeKind.Local).AddTicks(6288),
                             CreatedBy = "Created via DbContext",
                             Description = "6 feet under",
                             LocationSetupId = new Guid("31e84c75-a86d-481e-8433-22918d2b3a24"),
@@ -313,7 +313,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c6074116-b961-4232-acb4-2c663ff456c8"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(696),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 378, DateTimeKind.Local).AddTicks(6672),
                             CreatedBy = "Created via DbContext",
                             Description = "up in sky",
                             LocationSetupId = new Guid("7660ceb6-fda5-449e-ba09-9796d00c555f"),
@@ -322,7 +322,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("23d13a3a-245a-4178-8cce-09a9bd28781d"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 469, DateTimeKind.Local).AddTicks(718),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 378, DateTimeKind.Local).AddTicks(6700),
                             CreatedBy = "Created via DbContext",
                             Description = "6 feet under",
                             LocationSetupId = new Guid("375b873e-b57f-496f-a919-07f7a462a3c5"),
@@ -362,7 +362,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("31e84c75-a86d-481e-8433-22918d2b3a24"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 468, DateTimeKind.Local).AddTicks(8148),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 378, DateTimeKind.Local).AddTicks(3746),
                             CreatedBy = "Created via DbContext",
                             Name = "Setup for Project ED9C66C8-E2EB-4764-B625-96657B603D25",
                             ProjectId = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25")
@@ -370,7 +370,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7660ceb6-fda5-449e-ba09-9796d00c555f"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 468, DateTimeKind.Local).AddTicks(8578),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 378, DateTimeKind.Local).AddTicks(4105),
                             CreatedBy = "Created via DbContext",
                             Name = "Setup for Project 087B0654-C840-43A2-B827-90D47C5BA041",
                             ProjectId = new Guid("087b0654-c840-43a2-b827-90d47c5ba041")
@@ -378,7 +378,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("375b873e-b57f-496f-a919-07f7a462a3c5"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 468, DateTimeKind.Local).AddTicks(8601),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 378, DateTimeKind.Local).AddTicks(4129),
                             CreatedBy = "Created via DbContext",
                             Name = "Setup for Project FE04D159-3CD6-4A19-A53E-48AB4425B5FD",
                             ProjectId = new Guid("fe04d159-3cd6-4a19-a53e-48ab4425b5fd")
@@ -432,7 +432,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ed9c66c8-e2eb-4764-b625-96657b603d25"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 468, DateTimeKind.Local).AddTicks(5456),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 378, DateTimeKind.Local).AddTicks(321),
                             CreatedBy = "Created via DbContext",
                             CustomerId = new Guid("2a81c327-07a9-4b1d-a400-222b785f6481"),
                             Description = "TimeControl 2.1",
@@ -442,7 +442,7 @@ namespace ProjectEditor.Persistence.Migrations
                         new
                         {
                             Id = new Guid("087b0654-c840-43a2-b827-90d47c5ba041"),
-                            Created = new DateTime(2022, 6, 6, 22, 32, 8, 468, DateTimeKind.Local).AddTicks(5783),
+                            Created = new DateTime(2022, 6, 7, 8, 45, 12, 378, DateTimeKind.Local).AddTicks(914),
                             CreatedBy = "Created via DbContext",
                             CustomerId = new Guid("02d2f7a4-8c6e-4f2e-873e-7edc45314939"),
                             Description = "WeatherChanger V1.0",
